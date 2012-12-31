@@ -79,7 +79,7 @@
 
 	tapLabel.text = @"Tap";
 	tapLabel.textColor = [UIColor whiteColor];
-	tapLabel.textAlignment = UITextAlignmentCenter;
+	tapLabel.textAlignment = NSTextAlignmentCenter;//UITextAlignmentCenter;
 	tapLabel.backgroundColor = [UIColor clearColor];
 	tapLabel.font = [UIFont systemFontOfSize:24.0f];
 	tapLabel.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
@@ -193,7 +193,13 @@
 		readerViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
 		readerViewController.modalPresentationStyle = UIModalPresentationFullScreen;
 
-		[self presentModalViewController:readerViewController animated:YES];
+
+        //[self presentModalViewController:readerViewController animated:YES];
+        [self presentViewController:readerViewController animated:YES completion:^{
+            
+        }];
+        
+
 
 #endif // DEMO_VIEW_CONTROLLER_PUSH
 	}
@@ -209,7 +215,8 @@
 
 #else // dismiss the modal view controller
 
-	[self dismissModalViewControllerAnimated:YES];
+	//[self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 
 #endif // DEMO_VIEW_CONTROLLER_PUSH
 }
